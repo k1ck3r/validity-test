@@ -10,7 +10,7 @@ interface Eth-Trunk1
 #
 interface Eth-Trunk2
  description LinkToCust1
- port default vlan 3510, 99
+ port default vlan 3510 99
  stp disable
  mode lacp-static
 #
@@ -22,7 +22,7 @@ interface Eth-Trunk3
 #
 interface Eth-Trunk4
  description LinkToCust3
- port default vlan 3510, 99
+ port default vlan 3510 99
  stp disable
  mode lacp-static
 #
