@@ -1,6 +1,6 @@
 #
 interface Eth-Trunk1
- description Link To oxygen.maa
+ description Link: To oxygen.maa
  port link-type trunk
  undo port trunk allow-pass vlan 1
  port trunk allow-pass vlan 1027 to 1028 3510 4050
@@ -9,37 +9,37 @@ interface Eth-Trunk1
  mode lacp-static
 #
 interface Eth-Trunk2
- description LinkToCust1
+ description Link: ToCust1
  port default vlan 3510
  stp disable
  mode lacp-static
 #
 interface Eth-Trunk3
- description LinktoCust2
+ description Link: toCust2
  port default vlan 3510
  stp disable
  mode lacp-static
 #
 interface Eth-Trunk4
- description LinkToCust3
+ description Link: ToCust3
  port default vlan 3510
  stp disable
  mode lacp-static
 #
 interface Eth-Trunk5
- description LinktoCust4
+ description Link: toCust4
  port default vlan 3510
  stp disable
  mode lacp-static
 #
 interface Eth-Trunk9
- description LinktoCust5
+ description Link: toCust5
  port default vlan 3510
  stp disable
  mode lacp-static
 #
 interface 10GE1/0/1
- description ExtremeIXCust10
+ description Link: ExtremeIXCust10
  port link-type hybrid
  port hybrid pvid vlan 3510
  undo port hybrid untagged vlan 1
@@ -60,7 +60,7 @@ interface 10GE1/0/1
  device transceiver 10GBASE-FIBER
 #
 interface 10GE1/0/2
- description ExtremeIXCust11
+ description Link: ExtremeIXCust11
  port link-type hybrid
  port hybrid pvid vlan 3510
  undo port hybrid untagged vlan 1
