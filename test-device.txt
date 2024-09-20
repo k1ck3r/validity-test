@@ -1,6 +1,6 @@
 #
 interface Eth-Trunk1
- description LinkTooxygen.maa
+ description Link To oxygen.maa
  port link-type trunk
  undo port trunk allow-pass vlan 1
  port trunk allow-pass vlan 1027 to 1028 3510 4050
