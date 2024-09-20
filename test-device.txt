@@ -82,7 +82,7 @@ interface 10GE1/0/2
  device transceiver 10GBASE-FIBER
 #
 interface 10GE1/0/3
- description Link: Cust 1 (member of eth-trunk2)
+ description TEST-ASD
  eth-trunk 2
  sflow sampling collector 1
  sflow sampling rate 65535
@@ -90,7 +90,7 @@ interface 10GE1/0/3
  device transceiver 10GBASE-FIBER
 #
 interface 10GE1/0/4
- description Link: Cust 2 (member of eth-trunk3)
+ description ASD-TEST
  eth-trunk 3
  sflow sampling collector 1
  sflow sampling rate 65535
