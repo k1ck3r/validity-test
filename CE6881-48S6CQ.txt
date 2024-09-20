@@ -1,0 +1,99 @@
+#
+interface Eth-Trunk1
+ description Link: To oxygen.maa
+ port link-type trunk
+ undo port trunk allow-pass vlan 1
+ port trunk allow-pass vlan 1027 to 1028 3510 4050
+ stp disable
+ stp bpdu-filter enable
+ mode lacp-static
+#
+interface Eth-Trunk2
+ description Link: To Cust 1
+ port default vlan 3510
+ stp disable
+ mode lacp-static
+#
+interface Eth-Trunk3
+ description Link: to Cust 2
+ port default vlan 3510
+ stp disable
+ mode lacp-static
+#
+interface Eth-Trunk4
+ description Link: To Cust 3
+ port default vlan 3510
+ stp disable
+ mode lacp-static
+#
+interface Eth-Trunk5
+ description Link: to Cust 4
+ port default vlan 3510
+ stp disable
+ mode lacp-static
+#
+interface Eth-Trunk9
+ description Link: to Cust 5
+ port default vlan 3510
+ stp disable
+ mode lacp-static
+#
+interface 10GE1/0/1
+ description Extreme IX: Cust 10
+ port link-type hybrid
+ port hybrid pvid vlan 3510
+ undo port hybrid untagged vlan 1
+ port hybrid untagged vlan 3510
+ stp disable
+ stp bpdu-filter enable
+ mac-address flapping trigger error-down
+ storm control broadcast min-rate 100 max-rate 200
+ storm control multicast min-rate 100 max-rate 200
+ storm control unknown-unicast min-rate kbps 20000 max-rate kbps 50000
+ storm control interval 1
+ storm control action block
+ storm control enable log
+ mac-address learning disable action discard
+ qos lr cir 3000000 kbps cbs 402653184 bytes outbound
+ qos car inbound 3G
+ traffic-filter acl 4001 inbound
+ device transceiver 10GBASE-FIBER
+#
+interface 10GE1/0/2
+ description Extreme IX: Cust 11
+ port link-type hybrid
+ port hybrid pvid vlan 3510
+ undo port hybrid untagged vlan 1
+ port hybrid untagged vlan 3510
+ stp disable
+ stp bpdu-filter enable
+ mac-address flapping trigger error-down
+ storm control broadcast min-rate 100 max-rate 200
+ storm control multicast min-rate 100 max-rate 200
+ storm control unknown-unicast min-rate kbps 1000 max-rate kbps 2000
+ storm control interval 1
+ storm control action block
+ storm control enable log
+ mac-address learning disable action discard
+ loopback-detect enable
+ qos lr cir 3000000 kbps cbs 402653184 bytes outbound
+ qos car inbound 3G
+ traffic-filter acl 4001 inbound
+ device transceiver 10GBASE-FIBER
+#
+interface 10GE1/0/3
+ description Link: Cust 1 (member of eth-trunk2)
+ eth-trunk 2
+ sflow sampling collector 1
+ sflow sampling rate 65535
+ sflow sampling inbound
+ device transceiver 10GBASE-FIBER
+#
+interface 10GE1/0/4
+ description Link: Cust 2 (member of eth-trunk3)
+ eth-trunk 3
+ sflow sampling collector 1
+ sflow sampling rate 65535
+ sflow sampling inbound
+ device transceiver 10GBASE-FIBER
+#
